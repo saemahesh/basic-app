@@ -8,6 +8,7 @@ import ForgetPasswordPage from './components/forgotPassword/ForgetPasswordPage'
 import HomePage from './components/home/HomePage'
 import HeaderPage from './components/header/HeaderPage'
 import FooterPage from './components/footer/Footer'
+import Dashboard from './components/dashboard/dashboard'
 
 import './App.css'
 
@@ -22,6 +23,7 @@ export default function App() {
                     <Route path="/register" component={ RegisterPage } />
                     <Route path="/forget-password" component={ ForgetPasswordPage } />
                     <Route path="/home" component={ HomePage } />
+                    <Route path="/dashboard" component={ Dashboard } />
                 </Switch>
         </Router>
         <FooterPage />

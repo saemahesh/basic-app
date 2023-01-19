@@ -4,8 +4,13 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "./header.css";
+import Cookies from "js-cookie";
 
 function HeaderPage() {
+	const logout = ()=> {
+		Cookies.remove('uid');
+		window.location.href = '/';
+	}
 	return (
 		<Navbar collapseOnSelect className="bg-color" expand="lg" variant="dark">
 			<Container>
@@ -34,6 +39,11 @@ function HeaderPage() {
 						</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
+				{Cookies.get('uid') &&
+					<Nav.Item onClick={logout} eventKey={2} style={{ float: 'right' }} className="btn btn-warning">
+						<span className="fas fa-arrow-circle-right" />Logout
+					</Nav.Item>
+				}
 			</Container>
 		</Navbar>
 	);

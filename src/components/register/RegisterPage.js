@@ -2,10 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useFormik } from 'formik';
 import { register} from './registerService'
+import Cookies from 'js-cookie';
 
 import '../../App.css'
 
 export default function SignUpPage() {
+  if(Cookies.get('uid')){
+    window.location.href = '/dashboard';
+  }
     const formik = useFormik({
         initialValues:{
           name: '',

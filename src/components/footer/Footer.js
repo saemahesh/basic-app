@@ -4,7 +4,7 @@ import './footer.css'
 
 export default function FooterPage() {
     return (
-       <div>
+       <div className='footer'>
        <div className="card">
             <div className="row g-0">
             <div className="col-md-8 border-right">

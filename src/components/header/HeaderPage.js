@@ -41,8 +41,18 @@ function HeaderPage() {
 				</Navbar.Collapse>
 				{Cookies.get('uid') &&
 					<Nav.Item onClick={logout} eventKey={2} style={{ float: 'right' }} className="btn btn-warning">
-						<span className="fas fa-arrow-circle-right" />Logout
+						<i class="fa-solid fa-right-from-bracket"></i>Logout
 					</Nav.Item>
+				}
+				{!Cookies.get('uid') &&
+					<Nav.Link href="/login" eventKey={2} style={{ float: 'right', 'margin-right':'10px' }} className="btn btn-warning">
+						<i class="fas fa-sign-in-alt" style={{ 'margin-right':'10px' }} ></i>Login
+					</Nav.Link>
+				}
+				{!Cookies.get('uid') &&
+					<Nav.Link href="/register" eventKey={2} style={{ float: 'right' }} className="btn btn-info register">
+						Register
+					</Nav.Link>
 				}
 			</Container>
 		</Navbar>

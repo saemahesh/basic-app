@@ -7,10 +7,10 @@ import { useState } from "react";
 import Cookies from 'js-cookie'
 
 export default function SignInPage() {
-  console.log('cookies: ', Cookies.get('uid'))
-  if(Cookies.get('uid')){
-    window.location.href = '/dashboard';
-  }
+	console.log('cookies: ', Cookies.get('uid'))
+	if (Cookies.get('uid')) {
+		window.location.href = '/dashboard';
+	}
 	const [showError, setShowError] = useState(false);
 	const [showSuccess, setShowSuccess] = useState(false);
 	const formik = useFormik({
@@ -23,8 +23,8 @@ export default function SignInPage() {
 			login(values)
 				.then(function (response) {
 					setShowSuccess(true)
-          window.location.href = '/dashboard';
-				})  
+					window.location.href = '/dashboard';
+				})
 				.catch(function (error) {
 					setShowError(true);
 				});
@@ -35,8 +35,8 @@ export default function SignInPage() {
 			if (!values.email) {
 				errors.email = "Email Required";
 			} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-        errors.email = 'Invalid email address';
-      }
+				errors.email = 'Invalid email address';
+			}
 			if (!values.password) {
 				errors.password = "Password Required";
 			}
@@ -45,25 +45,8 @@ export default function SignInPage() {
 	});
 
 	return (
-		<div className='app_login container'>
-      <div style={{'margin-top':'20px'}}>
-			{showError && (
-				<div className="alert alert-danger">
-					<strong>Error!</strong> Email or Password is Incorrect.
-				</div>
-			)}
-      {showSuccess && (
-				<div className="alert alert-success">
-					<strong>Success!</strong> Logged in Successfully
-				</div>
-			)}
-      </div>
-			<div className="row">
-				<div className='col-md-3 col-sm-0 col-xs-0'>
-					<p>
-
-          </p>
-				</div>
+		<div className='app_login'>
+				<center>
 				<form
 					onSubmit={formik.handleSubmit}
 					className="col-md-offset-3 col-lg-offset-3"
@@ -93,7 +76,26 @@ export default function SignInPage() {
 					{formik.touched.password && formik.errors.password ? (
 						<div className="text-danger">{formik.errors.password}</div>
 					) : null}
-					<button type='submit'>Log In</button>
+					<button type='submit' className="btn btn-md submit-btn">
+					<i class="fas fa-sign-in-alt"></i>
+					Log In
+					</button>
+					<div>
+						{showError && (
+
+								<div class="alert alert-dismissible fade show alert-danger" role="alert" data-mdb-color="warning" id="customxD">
+									<strong>Error!</strong> Email or Password is Incorrect.
+									<button type="button" class="btn-close" data-mdb-dismiss="alert" aria-label="Close"></button>
+								</div>
+						
+
+						)}
+						{showSuccess && (
+							<div className="alert alert-success">
+								<strong>Success!</strong> Logged in Successfully
+							</div>
+						)}
+					</div>
 					<div className='mt-2'>
 						<a href="/register">
 							<span style={{ color: "#58ffa7f0", fontSize: "15px" }}>
@@ -103,7 +105,7 @@ export default function SignInPage() {
 						</a>
 					</div>
 				</form>
-			</div>
+				</center>
 		</div>
 	);
 }

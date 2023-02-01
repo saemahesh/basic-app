@@ -14,7 +14,10 @@ function HeaderPage() {
 	return (
 		<Navbar collapseOnSelect className="bg-color" expand="lg" variant="dark">
 			<Container>
-				<Navbar.Brand href="\">React-Bootstrap</Navbar.Brand>
+				<Navbar.Brand href="\">
+					<img src="https://react-bootstrap.github.io/logo.svg" alt="logo"></img>
+					Dance Group
+				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="me-auto">
@@ -45,12 +48,12 @@ function HeaderPage() {
 					</Nav.Item>
 				}
 				{!Cookies.get('uid') &&
-					<Nav.Link href="/login" eventKey={2} style={{ float: 'right', 'margin-right':'10px' }} className="btn btn-warning">
+					<Nav.Link href="/login" eventKey={2} style={{ float: 'right', 'margin-right':'10px' }} className="btn btn-outline-warning btn-rounded">
 						<i class="fas fa-sign-in-alt" style={{ 'margin-right':'10px' }} ></i>Login
 					</Nav.Link>
 				}
 				{!Cookies.get('uid') &&
-					<Nav.Link href="/register" eventKey={2} style={{ float: 'right' }} className="btn btn-info register">
+					<Nav.Link href="/register" eventKey={2} style={{ float: 'right' }} className="btn btn-outline-danger btn-rounded register">
 						Register
 					</Nav.Link>
 				}

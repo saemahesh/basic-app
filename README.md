@@ -1,4 +1,4 @@
-# Logster - login/register-page-app
+# Logster - login/register-page-app 
 
 > Simple login/register-page-app created with React js.
 
